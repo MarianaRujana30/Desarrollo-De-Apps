@@ -1,0 +1,61 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Catálogo de <span>personajes</span></h1>
+    <p>Explora el multiverso de Rick and Morty. Si alguien deja de ser bienvenido, márcalo.</p>
+  </header>
+
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Buscar por nombre…"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+    />
+    <button class="filter-btn" (click)="clearSearch()">Limpiar</button>
+  </div>
+
+  @if (loading) {
+    <div class="state-indicator loading">Cargando personajes…</div>
+  }
+
+  @if (errorMessage) {
+    <div class="state-indicator error">{{ errorMessage }}</div>
+  }
+
+  @if (!loading && !errorMessage) {
+    <div class="grid">
+      @for (char of characters; track char.id) {
+        <div class="card" [class.eliminado]="isEliminado(char.id)">
+          <div class="media">
+            <img [src]="char.image" [alt]="char.name" loading="lazy" />
+            <div class="x-mark"><span></span><span></span></div>
+            <button
+              class="kill-btn"
+              [class.is-dead]="isEliminado(char.id)"
+              [title]="isEliminado(char.id) ? 'Revivir' : 'Eliminar'"
+              (click)="toggleEliminado(char.id)"
+            >{{ isEliminado(char.id) ? '↺' : '☠' }}</button>
+          </div>
+          <div class="card-body">
+            <h2>{{ char.name }}</h2>
+            <p class="status-line">
+              <span class="dot" [ngClass]="statusClass(char.status)"></span>
+              {{ char.status }} · {{ char.species }}
+            </p>
+            <p class="label">Última ubicación conocida:</p>
+            <p class="value">{{ char.location.name }}</p>
+            <p class="badge-eliminado">✕ Eliminado del catálogo</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (totalPages > 1) {
+      <div class="pager">
+        <button [disabled]="!hasPrev" (click)="goToPage(currentPage - 1)">← Anterior</button>
+        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <button [disabled]="!hasNext" (click)="goToPage(currentPage + 1)">Siguiente →</button>
+      </div>
+    }
+  }
+</div>

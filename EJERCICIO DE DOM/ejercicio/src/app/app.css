@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+.tarjeta {
+  width: 380px;
+  padding: 45px 35px;
+  background: white;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.icono {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #1f2937;
+}
+
+.descripcion {
+  color: #6b7280;
+  font-size: 16px;
+  margin: 12px 0 30px;
+}
+
+.circulo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.4s ease;
+}
+
+h2 {
+  font-size: 24px;
+  color: #374151;
+  margin-bottom: 25px;
+}
+
+button {
+  border: none;
+  background: #111827;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.97);
+}

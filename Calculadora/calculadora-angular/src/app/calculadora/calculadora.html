@@ -1,0 +1,32 @@
+<div class="max-w-sm mx-auto mt-10 p-6 bg-white rounded-xl shadow-md space-y-4">
+  <h2 class="text-xl font-bold text-center text-gray-800">Calculadora</h2>
+
+  <input type="number" [(ngModel)]="numero1" placeholder="Número 1"
+    class="w-full border rounded-lg p-2">
+
+  <select [(ngModel)]="operacion" class="w-full border rounded-lg p-2">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+
+  <input type="number" [(ngModel)]="numero2" placeholder="Número 2"
+    class="w-full border rounded-lg p-2">
+
+  <div class="flex gap-2">
+    <button (click)="calcular()"
+      class="w-1/2 bg-blue-600 text-white rounded-lg p-2 hover:bg-blue-700 transition">
+      Comprobar
+    </button>
+
+    <button (click)="eliminar()"
+      class="w-1/2 bg-red-600 text-white rounded-lg p-2 hover:bg-red-700 transition">
+      Eliminar
+    </button>
+  </div>
+
+  <h3 *ngIf="resultado !== null" class="text-center text-lg font-semibold">
+    Resultado: {{ resultado }}
+  </h3>
+</div>

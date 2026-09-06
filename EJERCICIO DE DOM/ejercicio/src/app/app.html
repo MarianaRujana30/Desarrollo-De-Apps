@@ -1,0 +1,26 @@
+<div class="pagina">
+
+  <div class="tarjeta">
+
+    <div class="icono">🎨</div>
+
+    <h1>Cambia el color</h1>
+
+    <p class="descripcion">
+      Haz clic en el botón y descubre un nuevo color
+    </p>
+
+    <div 
+      class="circulo"
+      [style.background-color]="color">
+    </div>
+
+    <h2>{{ nombreColor }}</h2>
+
+    <button (click)="cambiarColor()">
+      ✨ Cambiar color
+    </button>
+
+  </div>
+
+</div>
